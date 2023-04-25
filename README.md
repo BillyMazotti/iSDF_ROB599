@@ -202,6 +202,12 @@ chmod +x setup_fetch_files.sh
 #### Fetch/rosbag Usage
 ```
 roslaunch isdf train_fetch.launch show_orbslam_vis:=true
+
+# once roscore launch files start roscore run the following
+rosbag play ./fetch_files/filter_bag_new.bag # if you have GPU acceleration
+
+# run rosbag slower to capture more keyframes (especially if you don't have GPU acceleration)
+rosbag play ./fetch_files/filter_bag_new.bag -r 0.1 
 ```
 
 #### Realsense Usage
