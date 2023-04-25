@@ -193,7 +193,18 @@ Install pytorch by following instructions [here](https://pytorch.org/get-started
 pip install -e .
 ```
 
-#### Usage
+#### Setup Files for Running Data off Fetch Robot (or use as a guide/boilerplate for preaparing for any other Robot/rosbag)
+```
+chmod +x setup_fetch_files.sh
+./setup_fetch_files.sh
+```
+
+#### Fetch/rosbag Usage
+```
+roslaunch isdf train_fetch.launch show_orbslam_vis:=true
+```
+
+#### Realsense Usage
 
 Before running you need to modify the camera intrinsics for both iSDF and ORB-SLAM3. If you launch the camera (`roslaunch realsense2_camera rs_camera.launch`), the intrinsics are published at `/camera/color/camera_info`. Copy these intrinsics into the iSDF config (`isdf/train/configs/realsense.json`) and the ORBSLAM3 config (`ORB_SLAM3_ros/config/realsense_config.yaml`).
 
