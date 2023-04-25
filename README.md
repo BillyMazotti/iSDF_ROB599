@@ -183,7 +183,9 @@ source devel/setup.bash
 Setup the iSDF conda environment.
 
 ```
-conda env create -f environment.yml
+conda env create -f environment.yml  #recommended by iSDF authors
+conda env create -f environment_macm1_vmwarefusion_ubuntu20045.yml # used by this project
+conda env create -f environment_startup.yml # recommended to use and tinker with if the previous environment files did not work
 conda activate isdf
 ```
 Install pytorch by following instructions [here](https://pytorch.org/get-started/locally/), then:
