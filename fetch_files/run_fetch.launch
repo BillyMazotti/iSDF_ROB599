@@ -1,0 +1,30 @@
+<launch>
+    <!--options: mono, rgbd or inertial  -->
+    <arg name="mode" default="rgbd"/>
+    <arg name="show_vis" default="true"/>
+
+    <!-- Run camera driver -->
+    <include file="$(find realsense2_camera)/launch/rs_camera.launch">
+        <arg name="color_width" value="640"/> 
+        <arg name="color_height" value="480"/> 
+        <arg name="color_fps" value="30"/>
+
+        <arg name="depth_width" value="640"/>
+        <arg name="depth_height" value="480"/>
+        <arg name="depth_fps" value="30"/>
+
+        <arg name="enable_sync" value="true"/>
+        <arg name="align_depth" value="true"/>
+    </include>
+
+    <!-- Launch ORB_SLAM3 -->
+    <include file="$(find orb_slam3_ros_wrapper)/launch/orb_slam3.launch">
+        <arg name="mode" value="$(arg mode)"/>
+        <arg name="rgb_topic" value="/head_camera/rgb/image_raw" />
+        <arg name="depth_topic" value="/head_camera/depth/image_raw" />
+        <arg name="imu_topic" value="/imu" />
+        <arg name="config_file" value="$(find orb_slam3_ros_wrapper)/config/fetch_config.yaml" />
+        <arg name="camera_base_frame" value="camera_link" />
+        <arg name="show_vis" value="$(arg show_vis)"/>
+    </include>
+</launch>
