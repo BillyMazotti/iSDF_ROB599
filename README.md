@@ -193,21 +193,25 @@ Install pytorch by following instructions [here](https://pytorch.org/get-started
 pip install -e .
 ```
 
-#### Setup Files for Running Data off Fetch Robot (or use as a guide/boilerplate for preaparing for any other Robot/rosbag)
+#### 
+
+
+#### Fetch/rosbag Usage
+Setup Files for Running Data off Fetch Robot (or use as a guide/boilerplate for preaparing for any other Robot/rosbag)
 ```
 chmod +x setup_fetch_files.sh
 ./setup_fetch_files.sh
 ```
 
-#### Fetch/rosbag Usage
+Download the rosbag from a Fetch robot here: https://drive.google.com/file/d/1iXav8xE_oDgJytQyZfkRtH6Q6MPOQsit/view?usp=share_link
 ```
 roslaunch isdf train_fetch.launch show_orbslam_vis:=true
 
-# once roscore launch files start roscore run the following
-rosbag play ./fetch_files/filter_bag_new.bag # if you have GPU acceleration
+# once roscore launch files start roscore, in a new terminal run the following
+rosbag play filter_bag_new.bag # if you have GPU acceleration
 
-# run rosbag slower to capture more keyframes (especially if you don't have GPU acceleration)
-rosbag play ./fetch_files/filter_bag_new.bag -r 0.1 
+# ... or run rosbag slower to capture more keyframes (especially if you don't have GPU acceleration)
+rosbag play filter_bag_new.bag -r 0.1 
 ```
 
 #### Realsense Usage
