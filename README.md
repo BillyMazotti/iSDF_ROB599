@@ -157,7 +157,7 @@ mkdir -p ~/catkin_ws/src
 cd ~/catkin_ws
 catkin init
 cd src
-git clone --recurse-submodules https://github.com/facebookresearch/iSDF.git
+git clone --recurse-submodules https://github.com/BillyMazotti/iSDF_ROB599.git
 ```
 Open `CMakeLists.txt` and change the directory that points to ORB-SLAM3 library at the beginning of the file (default is home folder).
 ```
